@@ -48,5 +48,6 @@ pipeline {
                 echo "Password: ${params.PASSWORD}"
             }
         }
+    }
 
 }
