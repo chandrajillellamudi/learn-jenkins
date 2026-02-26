@@ -19,10 +19,15 @@ pipeline {
 
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
+    environment {
+        DEPLOY_TO = 'production'
+        GREETINGS = 'Chandra'
+    }
     stages {
         stage('Build') {
             steps {
                 sh 'echo this is BUILD'
+                sh 'env'
             }
         }
         stage('Test') {
