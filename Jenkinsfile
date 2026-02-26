@@ -23,7 +23,21 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo this is BUILD'
-                 echo "Hello ${params.PERSON}"
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo this is TEST'
+        }
+    }
+    stage('Deploy') {
+            steps {
+                sh 'echo this is DEPLOY'
+            }
+        }
+    stage('print-params') {
+            steps {
+                echo "Hello ${params.PERSON}"
 
                 echo "Biography: ${params.BIOGRAPHY}"
 
@@ -34,16 +48,5 @@ pipeline {
                 echo "Password: ${params.PASSWORD}"
             }
         }
-        stage('Test') {
-            steps {
-                sh 'echo this is TEST'
-                 sh 'sleep 10'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'echo this is DEPLOY'
-            }
-        }
-    }
+
 }
